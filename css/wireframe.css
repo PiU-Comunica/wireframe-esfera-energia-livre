@@ -383,4 +383,89 @@ button.btn {
     flex: 0 1 auto;
     width: min(420px, 100%);
   }
+
+  .tab-bar {
+    justify-content: center;
+  }
+
+  .tab-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.benefits {
+  padding: 8px 0 48px;
+}
+
+.tabs {
+  position: relative;
+}
+
+.tab-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.tab-panel {
+  display: none;
+  grid-template-columns: 1fr minmax(240px, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.tab-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.tab-copy {
+  margin: 0;
+}
+
+.tab-visual {
+  display: flex;
+  width: 100%;
+  min-height: 180px;
+  padding: 24px;
+}
+
+.tab-visual-hud {
+  min-height: 220px;
+}
+
+#tab-economia:checked ~ .tab-bar [for="tab-economia"],
+#tab-previsibilidade:checked ~ .tab-bar [for="tab-previsibilidade"],
+#tab-hud:checked ~ .tab-bar [for="tab-hud"],
+#tab-renovavel:checked ~ .tab-bar [for="tab-renovavel"] {
+  border-color: #3a3a3a;
+  background: #4a4a4a;
+  color: #f5f5f5;
+}
+
+#tab-economia:checked ~ .tab-panels .tab-panel-economia,
+#tab-previsibilidade:checked ~ .tab-panels .tab-panel-previsibilidade,
+#tab-hud:checked ~ .tab-panels .tab-panel-hud,
+#tab-renovavel:checked ~ .tab-panels .tab-panel-renovavel {
+  display: grid;
 }
