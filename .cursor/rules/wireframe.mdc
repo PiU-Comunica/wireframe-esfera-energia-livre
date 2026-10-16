@@ -1,0 +1,23 @@
+---
+description: Wireframe de baixa fidelidade — só tons de cinza, sem marca, placeholders descritivos, HTML/CSS/JS puro
+alwaysApply: true
+---
+
+# Wireframe de baixa fidelidade
+
+Este projeto é um wireframe esquemático. Toda alteração mantém baixa fidelidade.
+
+## Restrições
+
+- Caixas, linhas e hierarquia tipográfica. Sem sombra elaborada, gradiente, foto, ilustração ou animação decorativa.
+- Paleta só em tons de cinza.
+- Sem logotipo, cor ou identidade visual. O lugar da marca é um retângulo com o rótulo `[Logo]`.
+- Não invente texto. Use só o que já está escrito na estrutura. Onde não há texto, o placeholder nomeia o espaço entre colchetes, sem redigir a frase e sem estimar tamanho. Exemplo: `[Texto do botão de CTA]`.
+- HTML, CSS e JavaScript puros, em arquivos estáticos. Sem framework, biblioteca de UI ou CDN.
+
+## Exemplo
+
+```html
+<div class="slot">[Logo] Uma empresa Auren</div>
+<a class="btn" href="#formulario">[Texto do botão de CTA]</a>
+```
