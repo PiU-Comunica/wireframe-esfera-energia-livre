@@ -289,6 +289,54 @@ button.btn {
   margin-top: 6px;
 }
 
+.compare {
+  padding: 8px 0 48px;
+}
+
+.compare-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.compare-col {
+  flex: 0 1 420px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.compare-title {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.compare-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compare-list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.compare-list li:last-child {
+  margin-bottom: 0;
+}
+
+.compare-close {
+  margin: 16px 0 0;
+  color: #5c5c5c;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
 @media (max-width: 720px) {
   .site-header .section-label {
     text-align: center;
@@ -324,5 +372,15 @@ button.btn {
 
   .stat {
     width: min(280px, 100%);
+  }
+
+  .compare-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .compare-col {
+    flex: 0 1 auto;
+    width: min(420px, 100%);
   }
 }
