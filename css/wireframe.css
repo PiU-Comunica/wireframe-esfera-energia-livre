@@ -248,6 +248,47 @@ button.btn {
   }
 }
 
+.big-numbers {
+  padding: 24px 0 48px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.stat-value {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-label,
+.stat-note {
+  margin: 0;
+  color: #5c5c5c;
+  font-size: 0.875rem;
+}
+
+.stat-note {
+  margin-top: 6px;
+}
+
 @media (max-width: 720px) {
   .site-header .section-label {
     text-align: center;
@@ -274,5 +315,14 @@ button.btn {
 
   .lead-form {
     scroll-margin-top: 180px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .stat {
+    width: min(280px, 100%);
   }
 }
