@@ -243,7 +243,8 @@ button.btn {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo-track {
+  .logo-track,
+  .quote-track {
     animation: none;
   }
 }
@@ -525,5 +526,81 @@ button.btn {
 
   .how-steps li {
     max-width: 280px;
+  }
+}
+
+.quotes {
+  padding: 8px 0 48px;
+}
+
+.quotes-carousel {
+  overflow: hidden;
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+}
+
+.quote-track {
+  display: flex;
+  width: max-content;
+  animation: quote-marquee 40s linear infinite;
+}
+
+.quote-set {
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  padding-right: 16px;
+}
+
+.quote-card {
+  display: flex;
+  flex: 0 0 360px;
+  flex-direction: column;
+  align-items: center;
+  min-height: 180px;
+  padding: 24px;
+  text-align: center;
+}
+
+.quote-card blockquote {
+  margin: 0 0 16px;
+  font-size: 1.125rem;
+}
+
+.quote-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #5c5c5c;
+  font-size: 0.875rem;
+}
+
+@keyframes quote-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 720px) {
+  .quote-card {
+    flex-basis: 260px;
   }
 }
