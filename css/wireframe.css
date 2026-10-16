@@ -179,6 +179,75 @@ button.btn {
   font: inherit;
 }
 
+.logo-strip {
+  padding: 8px 0 32px;
+}
+
+.logo-strip-title {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.logo-marquee {
+  overflow: hidden;
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: logo-marquee 60s linear infinite;
+}
+
+.logo-set {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+}
+
+.logo-chip {
+  min-width: 96px;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-track {
+    animation: none;
+  }
+}
+
 @media (max-width: 720px) {
   .site-header .section-label {
     text-align: center;
