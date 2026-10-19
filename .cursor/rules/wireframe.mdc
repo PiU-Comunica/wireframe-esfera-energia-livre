@@ -12,12 +12,12 @@ Este projeto é um wireframe esquemático. Toda alteração mantém baixa fideli
 - Caixas, linhas e hierarquia tipográfica. Sem sombra elaborada, gradiente, foto, ilustração ou animação decorativa.
 - Paleta só em tons de cinza.
 - Sem logotipo, cor ou identidade visual. O lugar da marca é um retângulo com o rótulo `[Logo]`.
-- Não invente texto. Use só o que já está escrito na estrutura. Onde não há texto, o placeholder nomeia o espaço entre colchetes, sem redigir a frase e sem estimar tamanho. Exemplo: `[Texto do botão de CTA]`.
+- Não invente copy. Use só o que já está escrito na estrutura. Onde não há texto, o placeholder descreve entre colchetes o que vai no espaço, com a extensão aproximada que o texto final deve ter (sem citar limite de caracteres). Exemplo: um microbullet vira `[Benefício concreto em poucas palavras]`; uma resposta de FAQ vira um parágrafo curto descrevendo o que ela deve conter.
 - HTML, CSS e JavaScript puros, em arquivos estáticos. Sem framework, biblioteca de UI ou CDN.
 
 ## Exemplo
 
 ```html
 <div class="slot">[Logo] Uma empresa Auren</div>
-<a class="btn" href="#formulario">[Texto do botão de CTA]</a>
+<a class="btn" href="#formulario">[Verbo + benefício curto]</a>
 ```

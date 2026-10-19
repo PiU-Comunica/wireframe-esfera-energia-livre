@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wireframe — Landing Esfera</title>
+  <style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #e6e6e6;
+  color: #2b2b2b;
+  font-family: system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.section-label {
+  margin: 0 0 8px;
+  color: #6b6b6b;
+  font-size: 0.75rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 8px 0 12px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.header-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
+.brand {
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 16px;
+  justify-content: flex-start;
+  font-size: 0.875rem;
+}
+
+.selo {
+  color: #3a3a3a;
+}
+
+.btn {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  background: #4a4a4a;
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #4a4a4a;
+  outline-offset: 2px;
+}
+
+button.btn,
+.lead-form .btn {
+  width: 100%;
+  font-family: inherit;
+  cursor: default;
+}
+
+.hero {
+  padding: 32px 0 48px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 360px);
+  gap: 40px;
+  align-items: start;
+}
+
+.hero-copy h1 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-sub {
+  margin: 0 0 12px;
+  font-size: 1.0625rem;
+}
+
+.hero-cut {
+  margin: 0 0 24px;
+  color: #5c5c5c;
+  font-size: 0.9375rem;
+}
+
+.microbullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.microbullets li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.icon-slot {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.lead-form {
+  scroll-margin-top: 120px;
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field-name {
+  color: #5c5c5c;
+  font-size: 0.8125rem;
+}
+
+.field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  background: #e6e6e6;
+  color: #2b2b2b;
+  font: inherit;
+}
+
+.logo-strip {
+  padding: 8px 0 32px;
+}
+
+.logo-strip-title {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.logo-marquee {
+  overflow: hidden;
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: logo-marquee 60s linear infinite;
+}
+
+.logo-set {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+}
+
+.logo-chip {
+  min-width: 96px;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-track,
+  .quote-track {
+    animation: none;
+  }
+}
+
+.big-numbers {
+  padding: 24px 0 48px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.stat-value {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-label,
+.stat-note {
+  margin: 0;
+  color: #5c5c5c;
+  font-size: 0.875rem;
+}
+
+.stat-note {
+  margin-top: 6px;
+}
+
+.compare {
+  padding: 8px 0 48px;
+}
+
+.compare-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.compare-col {
+  flex: 0 1 420px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.compare-title {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.compare-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compare-list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.compare-list li:last-child {
+  margin-bottom: 0;
+}
+
+.compare-close {
+  margin: 16px 0 0;
+  color: #5c5c5c;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .site-header .section-label {
+    text-align: center;
+  }
+
+  .header-bar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .site-header .btn {
+    justify-self: center;
+    max-width: 100%;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.5rem;
+  }
+
+  .lead-form {
+    scroll-margin-top: 180px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .stat {
+    width: min(280px, 100%);
+  }
+
+  .compare-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .compare-col {
+    flex: 0 1 auto;
+    width: min(420px, 100%);
+  }
+
+  .tab-bar {
+    justify-content: center;
+  }
+
+  .tab-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.benefits {
+  padding: 8px 0 48px;
+}
+
+.tabs {
+  position: relative;
+}
+
+.tab-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.tab-panel {
+  display: none;
+  grid-template-columns: 1fr minmax(240px, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.tab-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.tab-copy {
+  margin: 0;
+}
+
+.tab-visual {
+  display: flex;
+  width: 100%;
+  min-height: 180px;
+  padding: 24px;
+}
+
+.tab-visual-hud {
+  min-height: 220px;
+}
+
+#tab-economia:checked ~ .tab-bar [for="tab-economia"],
+#tab-previsibilidade:checked ~ .tab-bar [for="tab-previsibilidade"],
+#tab-hud:checked ~ .tab-bar [for="tab-hud"],
+#tab-renovavel:checked ~ .tab-bar [for="tab-renovavel"] {
+  border-color: #3a3a3a;
+  background: #4a4a4a;
+  color: #f5f5f5;
+}
+
+#tab-economia:checked ~ .tab-panels .tab-panel-economia,
+#tab-previsibilidade:checked ~ .tab-panels .tab-panel-previsibilidade,
+#tab-hud:checked ~ .tab-panels .tab-panel-hud,
+#tab-renovavel:checked ~ .tab-panels .tab-panel-renovavel {
+  display: grid;
+}
+
+.how {
+  padding: 8px 0 48px;
+  text-align: center;
+}
+
+.how-title {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.how-steps li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.how-steps p {
+  margin: 0;
+}
+
+.how-time {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 16px;
+  padding: 12px 16px;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .tab-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .how-steps {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .how-steps li {
+    max-width: 280px;
+  }
+}
+
+.quotes {
+  padding: 8px 0 48px;
+}
+
+.quotes-carousel {
+  overflow: hidden;
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent
+  );
+}
+
+.quote-track {
+  display: flex;
+  width: max-content;
+  animation: quote-marquee 40s linear infinite;
+}
+
+.quote-set {
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  padding-right: 16px;
+}
+
+.quote-card {
+  display: flex;
+  flex: 0 0 360px;
+  flex-direction: column;
+  align-items: center;
+  min-height: 180px;
+  padding: 24px;
+  text-align: center;
+}
+
+.quote-card blockquote {
+  margin: 0 0 16px;
+  font-size: 1.125rem;
+}
+
+.quote-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #5c5c5c;
+  font-size: 0.875rem;
+}
+
+@keyframes quote-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 720px) {
+  .quote-card {
+    flex-basis: 260px;
+  }
+}
+
+.faq {
+  padding: 8px 0 48px;
+}
+
+.faq-list {
+  width: min(720px, 100%);
+  margin: 0 auto 32px;
+}
+
+.faq-list details {
+  margin-bottom: 8px;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
+.faq-list summary {
+  min-height: 44px;
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 16px 16px;
+  color: #5c5c5c;
+}
+
+.faq-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.faq-close {
+  margin: 0;
+}
+
+.thanks {
+  padding: 48px 0;
+}
+
+.thanks-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(560px, 100%);
+  margin-inline: auto;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.thanks-title {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+}
+
+.thanks-next {
+  margin: 0 0 16px;
+}
+
+.thanks-card .how-time {
+  margin-bottom: 0;
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="section-label">0. Header fixo</p>
+      <div class="header-bar">
+        <div class="slot brand">
+          <span class="logo-mark">[Logo]</span>
+          <span class="selo">Uma empresa Auren</span>
+        </div>
+        <a class="btn" href="#formulario">[Verbo + benefício curto]</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="section-label">1. Hero + formulário</p>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Sua empresa pode pagar até 35% menos na conta de energia.</h1>
+            <p class="hero-sub">Migre para o Mercado Livre com a Esfera: sem burocracia, sem pegadinha, com segurança.</p>
+            <p class="hero-cut">disponível para empresas de média e alta tensão</p>
+            <ul class="microbullets">
+              <li><span class="icon-slot" aria-hidden="true"></span>[Benefício concreto em poucas palavras]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Benefício concreto em poucas palavras]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Benefício concreto em poucas palavras]</li>
+            </ul>
+          </div>
+
+          <form class="lead-form" id="formulario">
+            <label class="field">
+              <span class="field-name">[Nome do campo]</span>
+              <input type="text" disabled>
+            </label>
+            <label class="field">
+              <span class="field-name">[Nome do campo]</span>
+              <input type="text" disabled>
+            </label>
+            <label class="field">
+              <span class="field-name">[Nome do campo]</span>
+              <input type="text" disabled>
+            </label>
+            <label class="field">
+              <span class="field-name">[Nome do campo]</span>
+              <input type="text" disabled>
+            </label>
+            <label class="field">
+              <span class="field-name">[Nome do campo]</span>
+              <input type="text" disabled>
+            </label>
+            <label class="field">
+              <span class="field-name">[Nome do campo]</span>
+              <input type="text" disabled>
+            </label>
+            <label class="field">
+              <span class="field-name">[Nome do campo]</span>
+              <input type="text" disabled>
+            </label>
+            <a class="btn" href="#pos-envio">[Verbo + benefício curto]</a>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="logo-strip">
+      <div class="container">
+        <p class="section-label">2. Faixa de logos de clientes</p>
+        <h2 class="logo-strip-title">[Frase curta de prova social sobre as empresas que já confiam na Esfera]</h2>
+      </div>
+      <div class="logo-marquee">
+        <div class="logo-track">
+          <div class="logo-set">
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+          </div>
+          <div class="logo-set" aria-hidden="true">
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+            <div class="slot logo-chip">[Logo]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="big-numbers">
+      <div class="container">
+        <p class="section-label">3. Big numbers</p>
+        <ul class="stats-grid">
+          <li class="slot stat">
+            <p class="stat-value">1.900</p>
+            <p class="stat-label">empresas</p>
+          </li>
+          <li class="slot stat">
+            <p class="stat-value">1.800</p>
+            <p class="stat-label">UCs</p>
+          </li>
+          <li class="slot stat">
+            <p class="stat-value">R$ 772 mi</p>
+            <p class="stat-label">economizados</p>
+          </li>
+          <li class="slot stat">
+            <p class="stat-value">11 anos</p>
+            <p class="stat-label">de mercado livre</p>
+          </li>
+          <li class="slot stat">
+            <p class="stat-value">8,8 GW</p>
+            <p class="stat-label">via Auren</p>
+            <p class="stat-note">"a 3ª maior geradora do Brasil"</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="compare">
+      <div class="container">
+        <p class="section-label">4. Comparativo Cativo x Mercado Livre</p>
+        <div class="compare-grid">
+          <div class="compare-col">
+            <h2 class="compare-title">[Título da coluna sobre o mercado cativo]</h2>
+            <ul class="compare-list">
+              <li><span class="icon-slot" aria-hidden="true"></span>[Dor do mercado cativo que a empresa sente hoje na conta]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Dor do mercado cativo que a empresa sente hoje na conta]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Dor do mercado cativo que a empresa sente hoje na conta]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Dor do mercado cativo que a empresa sente hoje na conta]</li>
+            </ul>
+          </div>
+          <div class="compare-col">
+            <h2 class="compare-title">[Título da coluna sobre o Mercado Livre com a Esfera]</h2>
+            <ul class="compare-list">
+              <li><span class="icon-slot" aria-hidden="true"></span>[Ganho concreto que a empresa tem ao migrar com a Esfera]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Ganho concreto que a empresa tem ao migrar com a Esfera]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Ganho concreto que a empresa tem ao migrar com a Esfera]</li>
+              <li><span class="icon-slot" aria-hidden="true"></span>[Ganho concreto que a empresa tem ao migrar com a Esfera]</li>
+            </ul>
+          </div>
+        </div>
+        <p class="compare-close">[Fechamento que tranquiliza: a energia continua chegando pela mesma distribuidora de sempre]</p>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="container">
+        <p class="section-label">5. Benefícios em abas</p>
+        <div class="tabs">
+          <input class="tab-input" id="tab-economia" name="benefits" type="radio" checked>
+          <input class="tab-input" id="tab-previsibilidade" name="benefits" type="radio">
+          <input class="tab-input" id="tab-hud" name="benefits" type="radio">
+          <input class="tab-input" id="tab-renovavel" name="benefits" type="radio">
+
+          <div class="tab-bar">
+            <label class="tab-btn" for="tab-economia">Economia</label>
+            <label class="tab-btn" for="tab-previsibilidade">Previsibilidade</label>
+            <label class="tab-btn" for="tab-hud">Acompanhamento digital (HUD)</label>
+            <label class="tab-btn" for="tab-renovavel">Energia renovável</label>
+          </div>
+
+          <div class="tab-panels">
+            <div class="tab-panel tab-panel-economia">
+              <div class="tab-copy-col">
+                <h2 class="tab-title">Economia</h2>
+                <p class="tab-copy">[Frase que explica o benefício desta aba e mostra o impacto dele no dia a dia da empresa, com um dado ou exemplo concreto sempre que houver]</p>
+              </div>
+              <div class="slot tab-visual">[Visual]</div>
+            </div>
+            <div class="tab-panel tab-panel-previsibilidade">
+              <div class="tab-copy-col">
+                <h2 class="tab-title">Previsibilidade</h2>
+                <p class="tab-copy">[Frase que explica o benefício desta aba e mostra o impacto dele no dia a dia da empresa, com um dado ou exemplo concreto sempre que houver]</p>
+              </div>
+              <div class="slot tab-visual">[Visual]</div>
+            </div>
+            <div class="tab-panel tab-panel-hud">
+              <div class="tab-copy-col">
+                <h2 class="tab-title">Acompanhamento digital (HUD)</h2>
+                <p class="tab-copy">[Frase que explica o benefício desta aba e mostra o impacto dele no dia a dia da empresa, com um dado ou exemplo concreto sempre que houver]</p>
+              </div>
+              <div class="slot tab-visual tab-visual-hud">[Mockup do HUD]</div>
+            </div>
+            <div class="tab-panel tab-panel-renovavel">
+              <div class="tab-copy-col">
+                <h2 class="tab-title">Energia renovável</h2>
+                <p class="tab-copy">[Frase que explica o benefício desta aba e mostra o impacto dele no dia a dia da empresa, com um dado ou exemplo concreto sempre que houver]</p>
+              </div>
+              <div class="slot tab-visual">[Visual]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="container">
+        <p class="section-label">6. Como funciona</p>
+        <h2 class="how-title">Como funciona</h2>
+        <ol class="how-steps">
+          <li>
+            <span class="icon-slot" aria-hidden="true"></span>
+            <p>Envie sua fatura</p>
+          </li>
+          <li>
+            <span class="icon-slot" aria-hidden="true"></span>
+            <p>Receba um estudo personalizado</p>
+          </li>
+          <li>
+            <span class="icon-slot" aria-hidden="true"></span>
+            <p>A Esfera cuida de toda a migração.</p>
+          </li>
+        </ol>
+        <p class="how-time">Tempo médio de resposta de 2h em horário comercial</p>
+        <a class="btn how-cta" href="#formulario">[Verbo + benefício curto]</a>
+      </div>
+    </section>
+
+    <section class="quotes">
+      <div class="container">
+        <p class="section-label">7. Depoimento</p>
+        <div class="quotes-carousel">
+          <div class="quote-track">
+            <div class="quote-set">
+              <figure class="slot quote-card">
+                <blockquote>[Citação do cliente contando o resultado que teve com a Esfera, de preferência com um número, e como foi a experiência de migrar para o Mercado Livre]</blockquote>
+                <figcaption>
+                  <span>[Nome e sobrenome, cargo]</span>
+                  <span>[Nome da empresa]</span>
+                </figcaption>
+              </figure>
+              <figure class="slot quote-card">
+                <blockquote>[Citação do cliente contando o resultado que teve com a Esfera, de preferência com um número, e como foi a experiência de migrar para o Mercado Livre]</blockquote>
+                <figcaption>
+                  <span>[Nome e sobrenome, cargo]</span>
+                  <span>[Nome da empresa]</span>
+                </figcaption>
+              </figure>
+              <figure class="slot quote-card">
+                <blockquote>[Citação do cliente contando o resultado que teve com a Esfera, de preferência com um número, e como foi a experiência de migrar para o Mercado Livre]</blockquote>
+                <figcaption>
+                  <span>[Nome e sobrenome, cargo]</span>
+                  <span>[Nome da empresa]</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="quote-set" aria-hidden="true">
+              <figure class="slot quote-card">
+                <blockquote>[Citação do cliente contando o resultado que teve com a Esfera, de preferência com um número, e como foi a experiência de migrar para o Mercado Livre]</blockquote>
+                <figcaption>
+                  <span>[Nome e sobrenome, cargo]</span>
+                  <span>[Nome da empresa]</span>
+                </figcaption>
+              </figure>
+              <figure class="slot quote-card">
+                <blockquote>[Citação do cliente contando o resultado que teve com a Esfera, de preferência com um número, e como foi a experiência de migrar para o Mercado Livre]</blockquote>
+                <figcaption>
+                  <span>[Nome e sobrenome, cargo]</span>
+                  <span>[Nome da empresa]</span>
+                </figcaption>
+              </figure>
+              <figure class="slot quote-card">
+                <blockquote>[Citação do cliente contando o resultado que teve com a Esfera, de preferência com um número, e como foi a experiência de migrar para o Mercado Livre]</blockquote>
+                <figcaption>
+                  <span>[Nome e sobrenome, cargo]</span>
+                  <span>[Nome da empresa]</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <p class="section-label">8. FAQ + CTA final</p>
+        <div class="faq-list">
+          <details>
+            <summary>[Pergunta completa, escrita do jeito que o cliente digitaria na busca?]</summary>
+            <p>[Resposta que começa respondendo a pergunta de forma direta, já na primeira frase. Depois, completa com o contexto que ajuda a empresa a decidir: um exemplo, um número ou o próximo passo. Fica em um parágrafo curto, fácil de ler e de ser citado por buscadores e assistentes de IA.]</p>
+          </details>
+          <details>
+            <summary>[Pergunta completa, escrita do jeito que o cliente digitaria na busca?]</summary>
+            <p>[Resposta que começa respondendo a pergunta de forma direta, já na primeira frase. Depois, completa com o contexto que ajuda a empresa a decidir: um exemplo, um número ou o próximo passo. Fica em um parágrafo curto, fácil de ler e de ser citado por buscadores e assistentes de IA.]</p>
+          </details>
+          <details>
+            <summary>[Pergunta completa, escrita do jeito que o cliente digitaria na busca?]</summary>
+            <p>[Resposta que começa respondendo a pergunta de forma direta, já na primeira frase. Depois, completa com o contexto que ajuda a empresa a decidir: um exemplo, um número ou o próximo passo. Fica em um parágrafo curto, fácil de ler e de ser citado por buscadores e assistentes de IA.]</p>
+          </details>
+          <details>
+            <summary>[Pergunta completa, escrita do jeito que o cliente digitaria na busca?]</summary>
+            <p>[Resposta que começa respondendo a pergunta de forma direta, já na primeira frase. Depois, completa com o contexto que ajuda a empresa a decidir: um exemplo, um número ou o próximo passo. Fica em um parágrafo curto, fácil de ler e de ser citado por buscadores e assistentes de IA.]</p>
+          </details>
+          <details>
+            <summary>[Pergunta completa, escrita do jeito que o cliente digitaria na busca?]</summary>
+            <p>[Resposta que começa respondendo a pergunta de forma direta, já na primeira frase. Depois, completa com o contexto que ajuda a empresa a decidir: um exemplo, um número ou o próximo passo. Fica em um parágrafo curto, fácil de ler e de ser citado por buscadores e assistentes de IA.]</p>
+          </details>
+          <details>
+            <summary>[Pergunta completa, escrita do jeito que o cliente digitaria na busca?]</summary>
+            <p>[Resposta que começa respondendo a pergunta de forma direta, já na primeira frase. Depois, completa com o contexto que ajuda a empresa a decidir: um exemplo, um número ou o próximo passo. Fica em um parágrafo curto, fácil de ler e de ser citado por buscadores e assistentes de IA.]</p>
+          </details>
+        </div>
+        <div class="faq-cta">
+          <p class="faq-close">[Frase de fechamento que convida a empresa a descobrir quanto pode economizar]</p>
+          <a class="btn" href="#formulario">[Verbo + benefício curto]</a>
+        </div>
+      </div>
+    </section>
+    <section class="thanks" id="pos-envio">
+      <div class="container">
+        <p class="section-label">Pós-envio (página separada no site)</p>
+        <div class="slot thanks-card">
+          <h1 class="thanks-title">[Título que confirma o envio e agradece o contato]</h1>
+          <p class="thanks-next">[Próximo passo explicado em uma frase: o que acontece agora, quem vai entrar em contato e o que a empresa pode deixar separado para agilizar o estudo]</p>
+          <p class="how-time">Tempo médio de resposta de 2h em horário comercial</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
